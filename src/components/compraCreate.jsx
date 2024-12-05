@@ -22,7 +22,7 @@ const CompraCreate = () => {
             fechaIngreso
         };
 
-        axios.post('https://670dde27073307b4ee44b5e1.mockapi.io/productos/productos', nuevaCompra)
+        axios.post('https://future-cassandry-universidadautonoma-4d43f10c.koyeb.app/api/productos/crear', nuevaCompra)
             .then(() => {
                 alert('Compra guardada exitosamente.');
                 navigate('/');

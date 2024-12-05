@@ -11,11 +11,12 @@ const CompraEdit = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get(`https://670dde27073307b4ee44b5e1.mockapi.io/productos/productos/${id}`)
+        axios.get(`https://future-cassandry-universidadautonoma-4d43f10c.koyeb.app/api/productos/${id}`)
             .then(response => {
-                productoChange(response.data.producto);
-                precioChange(response.data.precio);
-                fechaIngresoChange(response.data.fechaIngreso);
+                const data = response.data.producto;
+                productoChange(data.producto);
+                precioChange(data.precio);
+                fechaIngresoChange(data.fechaIngreso);
             })
             .catch(error => console.log(error));
     }, [id]);
@@ -28,7 +29,7 @@ const CompraEdit = () => {
             fechaIngreso
         };
 
-        axios.put(`https://670dde27073307b4ee44b5e1.mockapi.io/productos/productos/${id}`, compraActualizada)
+        axios.put(`https://future-cassandry-universidadautonoma-4d43f10c.koyeb.app/api/productos/editar/${id}`, compraActualizada)
             .then(() => {
                 alert('Compra actualizada exitosamente.');
                 navigate('/');

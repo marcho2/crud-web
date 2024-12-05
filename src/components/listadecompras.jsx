@@ -12,13 +12,13 @@ const ListaDeCompras = () => {
     const [compras, setCompras] = useState([]);
     const navigate = useNavigate();
     useEffect(() => {
-        axios.get('https://670dde27073307b4ee44b5e1.mockapi.io/productos/productos')
-            .then(response => setCompras(response.data))
+        axios.get('https://future-cassandry-universidadautonoma-4d43f10c.koyeb.app/api/productos')
+            .then(response => setCompras(response.data.productos))
             .catch(error => console.log(error));
     }, []);
     const removeCompra = (id) => {
         if (window.confirm('¿Desea eliminar esta compra?')) {
-            axios.delete(`https://670dde27073307b4ee44b5e1.mockapi.io/productos/productos/${id}`)
+            axios.delete(`https://future-cassandry-universidadautonoma-4d43f10c.koyeb.app/api/productos/borrar/${id}`)
                 .then(() => {
                     const nuevasCompras = compras.filter(compra => compra.id !== id);
                     setCompras(nuevasCompras);
